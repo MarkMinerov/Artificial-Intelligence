@@ -64,3 +64,14 @@ model.compile(loss=loss_function, optimizer=optimizer, metrics=array_of_metrics)
 1. [**Loss Functions**](https://keras.io/api/losses/)
 2. [**Optimizers**](https://keras.io/api/optimizers/)
 3. [**Metrics**](https://keras.io/api/metrics/)
+
+- Evaluate your model using `model.evaluate` method passing `test_X` and `test_Y` as parameters
+
+- Tweak your model if needed in order to make your model predict more precisely:
+
+1. Change amount of layers
+2. Change units in layers
+3. Add activation function to layers **if needed**
+4. Change optimizer (the most used: SGD, Adam)
+5. Change Loss function **if needed**
+6. Add more data for learning if possible
