@@ -50,7 +50,7 @@ Method `flow_from_directory` returns a [python generator](https://wiki.python.or
 
 Here is an example what we are going to create with `tensorflow`:
 
-![CNN model example](https://www.researchgate.net/publication/331442449/figure/fig3/AS:771854448992257@1561035849829/An-example-of-convolutional-neural-network-A-typical-CNN-model-has-three-main-parts.png)
+![CNN model example](images/CNN-example.png)
 
 So let's create something like this using `keras.layers`:
 
