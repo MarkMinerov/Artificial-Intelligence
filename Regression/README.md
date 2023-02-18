@@ -1,4 +1,4 @@
-# How to build build a regression model
+# How to build a regression model
 
 - Get data in DataFrames
 - Scale data using next methods:
