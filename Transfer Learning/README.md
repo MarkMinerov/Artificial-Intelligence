@@ -2,6 +2,8 @@
 
 In this section I will tell you what is Transfer Learning and how to use it. **Transfer learning** is a machine learning method where we reuse a pre-trained model as the starting point for a model on a new task. To put it simply—a model trained on one task is repurposed on a second, related task as an optimization that allows rapid progress when modeling the second task.
 
+![transfer_learning](images/transfer_learning.png)
+
 ## Transfer Learning: Feature Extraction
 
 Feature extraction method is a very popular method of training a model which was already pretrained for us before. Below you can find an example of how we can extract features from our model while it is learning.
@@ -153,6 +155,8 @@ Epoch 10/10
 - EfficientNet
 - ResNet
 - MobileNet
+
+![CNN models](images/models.png)
 
 These models are used to solve the classification problem.
 
