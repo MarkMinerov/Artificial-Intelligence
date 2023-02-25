@@ -8,18 +8,18 @@
 
 ## Faster RNN model
 
-![Faster_rnn](faster-RCNN.png)
+![Faster_rnn](images/faster-RCNN.png)
 
 ## SSD. Single Shot multibox detector model
 
-![SSD](./SSD.png)
+![SSD](images/SSD.png)
 
 SSD uses `Non-maximum suppression` operation. This operation uses `Intersection of a Union`, what is `Intersection` / `Union`
 If `IoU` gives us number `> 0.5` than we delete one `RoI` with less confidence.
 
 ## YOLO. You only look once
 
-![yolo](YOLO.png)
+![yolo](images/YOLO.png)
 
 YOLOv4 consist of:
 
@@ -36,6 +36,16 @@ Things to consider:
 
 ## Accuracy VS time
 
-![accuracy_vs_time](accuracy_vs_time.png)
+![accuracy_vs_time](images/accuracy_vs_time.png)
 
 `mAP` - mean average precision
+
+## LabelImg: Helpful tool to annotate images
+
+LabelImg is a graphical image annotation tool.
+
+It is written in Python and uses Qt for its graphical interface.
+
+Annotations are saved as XML files in PASCAL VOC format, the format used by ImageNet. Besides, it also supports YOLO and CreateML formats.
+
+On this [GitHub](https://github.com/heartexlabs/labelImg) you can find all about installation process of labelImg.
