@@ -1,4 +1,4 @@
-# How to train and evaluate our model on Google Cloud using SDK on WSL
+# How to train and evaluate our model on Google Cloud
 
 Here I describe what commands we need to use in order to allow our model start training on Google Cloud since it is better and faster to train models on it.
 
