@@ -59,14 +59,35 @@ def create_tf_example(group, path, category_idx):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description="Generating tfrecords from images and csv file")
-	parser.add_argument("--path_to_images", type=str, help="folder that contains images",
-	                    default="data/train/images")
-	parser.add_argument("--path_to_annot", type=str, help="full path to annotations csv file",
-	                    default="annotations.csv")
-	parser.add_argument("--path_to_label_map", type=str, help="full path to label_map file",
-	                    default="label_map.pbtxt")
-	parser.add_argument("--path_to_save_tfrecords", type=str, help="This path is for saving the generated tfrecords",
-	                    default="data/myrecord.record")
+
+	parser.add_argument(
+		"--path_to_images",
+		type=str,
+		help="folder that contains images",
+	  default="data/train/images"
+	)
+
+	parser.add_argument(
+		"--path_to_annot",
+		type=str,
+		help="full path to annotations csv file",
+	  default="annotations.csv"
+	)
+
+	parser.add_argument(
+		"--path_to_label_map",
+		type=str,
+		help="full path to label_map file",
+	  default="label_map.pbtxt"
+	)
+
+	parser.add_argument(
+		"--path_to_save_tfrecords",
+		type=str,
+		help="This path is for saving the generated tfrecords",
+	  default="data/myrecord.record"
+	)
+
 	args = parser.parse_args()
 
 	csv_path = args.path_to_annot
@@ -80,6 +101,7 @@ if __name__ == '__main__':
 	examples = pd.read_csv(csv_path)
 	print("Generating tfrecord .... ")
 	grouped = split(examples, 'filename')
+
 	for group in grouped:
 		tf_example = create_tf_example(group, images_path, label_map_dict)
 		writer.write(tf_example.SerializeToString())

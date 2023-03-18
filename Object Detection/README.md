@@ -1,14 +1,15 @@
 # Object Detection using Deep Learning Neural Networks
 
-- `Region Proposal Network`
-- `ROI Pooling` (Region of Interest Pooling)
+- `Region Proposal Network` - is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position.
+- `ROI Pooling` (Region of Interest Pooling) - You can read what is ROI Pooling and why should we use it in [this article](https://erdem.pl/2020/02/understanding-region-of-interest-ro-i-pooling) because it is really hard to describe how this pooling works in several sentences.
+- `RoIAlign` - Another awesome [article](https://erdem.pl/2020/02/understanding-region-of-interest-part-2-ro-i-align)!
 
-- "One Stage" category: `SSD` (Single Shot multibox detector), `YOLO` (You only look once)
-- "Two Stage" category: `RCNN`, `Faster RCNN`
+- **"One Stage"** category: `SSD` (Single Shot multibox detector), `YOLO` (You only look once)
+- **"Two Stage"** category: `RCNN`, `Faster RCNN`
 
-## Faster RNN model
+## Faster RCNN model
 
-![Faster_rnn](images/faster-RCNN.png)
+![Faster_rcnn](images/faster-RCNN.png)
 
 ## SSD. Single Shot multibox detector model
 
@@ -49,3 +50,60 @@ It is written in Python and uses Qt for its graphical interface.
 Annotations are saved as XML files in PASCAL VOC format, the format used by ImageNet. Besides, it also supports YOLO and CreateML formats.
 
 On this [GitHub](https://github.com/heartexlabs/labelImg) you can find all about installation process of labelImg.
+
+## Training and evaluating process using TensorFlow Object Detection API
+
+Here are command examples which you can use in order to train your own Object Detection model with Tensorflow:
+
+```bash
+# Train
+PIPELINE_CONFIG_PATH=path_to_pipeline_file # enter here path to your .config file
+MODEL_DIR=path_where_to_save_model
+
+python object_detection/model_main_tf2.py \
+--pipeline_config_path=${PIPELINE_CONFIG_PATH} \
+--model_dir=${MODEL_DIR} \
+--alsologtostderr # also output logs to std
+```
+
+Here `PIPELINE_CONFIG_PATH` is a path to `.config` file where we store our settings for our model. On the [following page](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md) you can choose `Transfer Learning` model which you want to train on your own data. And [here](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) you can find desired examples of config for the model you have chosen before.
+
+Here is an example of bash script which you can use to evaluate your model:
+
+```bash
+# Evaluate
+PIPELINE_CONFIG_PATH=path_to_pipeline_file # enter here path to your .config file
+MODEL_DIR=path_from_where_load_model
+CHECKPOINT_DIR=${MODEL_DIR} # file where your checkpoint file is stored, usually it is the same directory where your model output its results
+
+python object_detection/model_main_tf2.py \
+--pipeline_config_path=${PIPELINE_CONFIG_PATH} \
+--model_dir=${MODEL_DIR} \
+--checkpoint_dir=${CHECKPOINT_DIR} \
+--alsologtostderr
+```
+
+After evaluation process has created additional files in `MODEL_DIR` directory you can look at the assessment using `TensorBoard`:
+
+```bash
+tensorboard --logdir=${MODEL_DIR}
+```
+
+Then you need to follow instructions from the console. (Usually you just need to open `localhost:port` in your browser, you can find `port` in the given instructions)
+
+## Checkpoints
+
+I created `checkpoints` folder where you can find already well-trained weights which you can load via code that you can find in `scripts/model_loader.py` script. Wish you luck!
+
+### Short description for checkpoints
+
+- `checkpoints/maskWearing_checkpoint.index` solves [maskWearing](https://public.roboflow.com/object-detection/mask-wearing) binary classification problem
+- `checkpoints/petsBreed_checkpoint.index` solves [petsBreed](https://public.roboflow.com/object-detection/oxford-pets/1) multiclass classification problem.
+
+## Examples
+
+Here are some results from model which I have trained:
+
+![cat1](./images/examples/cat1.png)
+![cat2](./images/examples/cat2.png)
+![dog1](./images/examples/dog1.png)
