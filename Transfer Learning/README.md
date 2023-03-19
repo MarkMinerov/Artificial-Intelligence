@@ -166,6 +166,17 @@ These models are used to solve the classification problem.
 - **"Feature extraction"** transfer learning - use the prelearned patterns of an existing model (e.g EfficientNetB0 trained on ImageNet) and adjust the output layer for your own problem (e.g 1000 classes -> 10 classes of food)
 - **"Fine-tuning"** transfer learning - use the prelearned patterns of an existing model and "fine-tune" many or all of the underlying layers (including new output layers)
 
+## Mixed precision
+
+Mixed precision is used when we want to increase learning process by mixing together float16 (for computations) and float32 (for storing data). Using mixed precision helps us to boost our GPU so we can use it like we have three GPU cards instead of one! Here is an example of how we can turn on mixed precision in TensorFlow:
+
+```python
+# Turn on mixed precision training
+from tensorflow.keras import mixed_precision
+
+mixed_precision.set_global_policy("mixed_float16") # set global data policy to mixed precision
+```
+
 ## Sequential API vs. Functional API
 
 ```python
