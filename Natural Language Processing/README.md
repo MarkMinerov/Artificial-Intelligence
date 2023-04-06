@@ -18,7 +18,7 @@ In Machine Learning, there are many (_except of Transformers_) methods using wha
 
 - Gated Recurrent Unit: This machine was introduced in 2014 as a machine which is very similar to the LSTM one. You should consider which machine is better for you based on your needs and experiments.
 
-![GRU](./GRU.png)
+![GRU](./GRU.jpg)
 
 - Bidirectional layer: Bidirectional layer which cab be based on LSTM or GRU is a way to process input data bidirectionally. It means that we process input data two times:
 
