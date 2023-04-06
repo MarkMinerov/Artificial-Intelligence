@@ -29,7 +29,7 @@ In Machine Learning, there are many (_except of Transformers_) methods using wha
 
 ![bidirectional](./bidirectional.webp)
 
-- **1D Convolution**: This layer can be used for text processing. This layer works the same way as a `Conv2D`. This layer also has filters and kernel size. `padding` parameter as well as other parameters which are used for convolutional layers can be used for this layer.
+- **1D Convolution**: This layer can be used for text processing. The layer works the same way like a `Conv2D` layer. `Conv1D` also has number of filters and kernel size. `padding` parameter as well as other parameters which are used for convolutional layers can be used for this layer.
 
 ![conv1d](./conv1d.png)
 
