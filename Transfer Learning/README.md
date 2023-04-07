@@ -150,7 +150,7 @@ Epoch 10/10
 
 `- val_loss: 0.3299 - val_accuracy: 0.8882`, that is incredible!
 
-## Already pretrained models for Computer Vision problem
+## Already pre-trained models for Computer Vision problem
 
 - EfficientNet
 - ResNet

@@ -39,8 +39,6 @@ Things to consider:
 
 ![accuracy_vs_time](images/accuracy_vs_time.png)
 
-`mAP` - mean average precision
-
 ## LabelImg: Helpful tool to annotate images
 
 LabelImg is a graphical image annotation tool.
