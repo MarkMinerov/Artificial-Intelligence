@@ -6,19 +6,34 @@ Here I describe how to create models to solve **text classification** problem. W
 
 In Machine Learning, there are many (_except of Transformers_) methods using what we can process text, here is a list of the the most used technics and layers that we can use:
 
-- **Text vectorization**: `TODO`
+- **Text vectorization**: Text vectorization is a powerful algorithm in Machine Learning which is used to convert text or characters into vector of numbers. Vectorization is very useful when we want to use _embeddings_, to extract number representation of a string from embedding layer we first have to vectorize this text using _TextVectorization_ layer.
+
+```python
+from tensorflow.keras.layers import TextVectorization
+
+text_vectorizer = TextVectorization(
+  max_tokens=vocabulary_len,
+  output_sequence_length=output_length,
+  output_mode='int',
+)
+
+text_vectorizer.adapt(text_data)
+
+print(text_vectorizer([text_data[0]]))
+```
+
 - **Embedding**: _Word-embedding_, _character embedding_, _sentence embedding_.
 - **Recurrent Neural Networks**: using **RNN** we can make our model remember some aspects while learning. **RNN** are not used very widely due to vanishing and exploding gradient problems.
 
-![RNN](./RNN.png)
+![RNN](./images/RNN.png)
 
 - **Long-Short term memory**: This machine in based on RNN and in widely used in text and speech recognition problem. **LSTM** machine is a complicated structure which consists of **LSTM** cells. Here is how **LSTM** cell looks from inside:
 
-![LSTM](./LSTM.webp)
+![LSTM](./images/LSTM.webp)
 
 - **Gated Recurrent Unit**: This machine was introduced in 2014 as a machine which is very similar to the LSTM one. You should consider which machine is better for you based on your needs and experiments.
 
-![GRU](./GRU.jpg)
+![GRU](./images/GRU.jpg)
 
 - **Bidirectional layer**: Bidirectional layer which cab be based on LSTM or GRU is a way to process input data bidirectionally. It means that we process input data two times:
 
@@ -27,13 +42,16 @@ In Machine Learning, there are many (_except of Transformers_) methods using wha
 
   Bidirectional layer can use either LSTM or GRU machine. It is important to say that this machine use two instances of either LSTM or GRU model under the hood. First machine is used to process data in _forward direction_ and second one is used to process data in _backward direction_.
 
-![bidirectional](./bidirectional.webp)
+![bidirectional](./images/bidirectional.webp)
 
 - **1D Convolution**: This layer can be used for text processing. The layer works the same way like a `Conv2D` layer. `Conv1D` also has number of filters and kernel size. We can also use `padding` parameter as well as other parameters which are used for convolutional layers.
 
-![conv1d](./conv1d.png)
+![conv1d](./images/conv1d.png)
 
-- **Transfer Learning**: `TODO`
+- **Transfer Learning**: It is believed that one of the best ways to create a sentence embedding layer is to use Transfer Learning. There are many already pre-trained models on `TensorHub`, but one of the most useful is `universal-sentence-encoder`, this transfer learning embedding layer has output vector with length of 512 and can be used to embed sentences instead of words.
+
+![USE](./images/USE.png)
+
 - **Transformers**: `TODO`
 
 ## Text vectorization

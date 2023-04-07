@@ -10,6 +10,9 @@ export PIPELINE_CONFIG_PATH=[PATH TO .config FILE]
 ```
 
 ```sh
+# From tensorflow/models/research
+cp object_detection/packages/tf2/setup.py .
+
 gcloud ai-platform jobs submit training [JOB NAME] \
   --runtime-version 2.11 \
   --python-version 3.7 \
