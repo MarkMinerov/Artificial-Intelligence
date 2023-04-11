@@ -22,7 +22,7 @@ text_vectorizer.adapt(text_data)
 print(text_vectorizer([text_data[0]]))
 ```
 
-- **Embedding**: _Word-embedding_, _character embedding_, _sentence embedding_.
+- **Embedding**: _Word-embedding_, _character embedding_, _sentence embedding_, _positional embedding_.
 - **Recurrent Neural Networks**: using **RNN** we can make our model remember some aspects while learning. **RNN** are not used very widely due to vanishing and exploding gradient problems.
 
 ![RNN](./images/RNN.png)
@@ -67,3 +67,5 @@ There are several types of vectorization techniques commonly used in NLP, includ
 - **Character embeddings**: Character embeddings represent words or subwords as sequences of character embeddings, rather than as single tokens. This can be useful for handling out-of-vocabulary words, as well as for modeling morphological variations and spelling variations in text.
 
 - **Sentence embeddings**: Sentence embeddings represent entire sentences as fixed-length vectors that capture their meaning and context. They can be generated using pre-trained models like the Universal Sentence Encoder or InferSent, or learned from scratch using neural network models like the SkipThought model.
+
+- **Positional Embedding**: Positional Embedding is another part of embeddings. This layer has no weights and does not get optimized while learning. This layer encode a sequence of words into a matrix of numbers where each row represents a vector of numbers with predefined length of n.
