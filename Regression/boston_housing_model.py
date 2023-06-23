@@ -10,9 +10,7 @@ def plot_predictions(test_X, test_Y, pred_Y):
   plt.legend()
   plt.show()
 
-(X_train, Y_train), (X_test, Y_test) = tf.keras.datasets.boston_housing.load_data(
-  path='boston_housing.npz', test_split=0.2
-)
+(X_train, Y_train), (X_test, Y_test) = tf.keras.datasets.boston_housing.load_data(path='boston_housing.npz', test_split=0.2)
 
 scaler = MinMaxScaler()
 scaler.fit(X_train)
@@ -28,6 +26,7 @@ model = tf.keras.Sequential([
 
 model.compile(loss=tf.keras.losses.mae, optimizer=tf.keras.optimizers.Adam(learning_rate=0.05), metrics=["mae"])
 history = model.fit(X_train, Y_train, epochs=250)
+
 print(model.evaluate(X_test, Y_test))
 
 pd.DataFrame(history.history).plot()
