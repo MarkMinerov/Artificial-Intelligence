@@ -45,8 +45,6 @@ insurance_model = tf.keras.Sequential([
 ])
 ```
 
-Here I have layers which amount of neurons lower: 100, 80, 50, 20, 10, 1...
-
 - Add Dropout if needed:
 
 _In the overfitting problem, the model learns the statistical noise. To be precise, the main motive of training is to decrease the loss function, given all the units (neurons). So in overfitting, a unit may change in a way that fixes up the mistakes of the other units. This leads to complex co-adaptations, which in turn leads to the overfitting problem because this complex co-adaptation fails to generalise on the unseen dataset._
