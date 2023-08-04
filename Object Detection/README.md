@@ -93,6 +93,17 @@ Then you need to follow instructions from the console. (Usually you just need to
 
 I created `checkpoints` folder where you can find already well-trained weights which you can load via code that you can find in `scripts/model_loader.py` script. Wish you luck!
 
+## Freeze model
+
+In order to use your model in production you have to convert your checkpoint into a normal TensorFlow model. To do that there is a special script laying in TensorFlow API folder. The path is `tensorflow/models/research/object_detection/exporter_main_v2.py`. Here is an example how this script works:
+
+```bash
+python exporter_main_v2.py --input_type="image_tensor" \
+--pipeline_config_path=$PATH_TO_CONFIG \
+--trained_checkpoint_dir=$MODEL_DIR\
+--output_directory=$OUTPUT_DIR
+```
+
 ### Short description for checkpoints
 
 - `checkpoints/maskWearing_checkpoint.index` solves [maskWearing](https://public.roboflow.com/object-detection/mask-wearing) binary classification problem
