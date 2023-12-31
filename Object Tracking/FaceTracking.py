@@ -3,7 +3,7 @@ import cv2
 from time import sleep
 
 face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 sleep(1)
 ret, frame = cap.read()
 face_rects = face_cascade.detectMultiScale(frame)
