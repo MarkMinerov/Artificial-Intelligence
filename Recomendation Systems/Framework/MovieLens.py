@@ -19,7 +19,7 @@ class MovieLens:
     def loadMovieLensLatestSmall(self):
 
         # Look for files relative to the directory we are running from
-        os.chdir(os.path.dirname(sys.argv[0]))
+        # os.chdir(os.path.dirname(sys.argv[0]))
 
         ratingsDataset = 0
         self.movieID_to_name = {}
@@ -61,18 +61,23 @@ class MovieLens:
     def getPopularityRanks(self):
         ratings = defaultdict(int)
         rankings = defaultdict(int)
+
         with open(self.ratingsPath, newline='') as csvfile:
             ratingReader = csv.reader(csvfile)
             next(ratingReader)
+
             for row in ratingReader:
                 movieID = int(row[1])
                 ratings[movieID] += 1
+
         rank = 1
+
         for movieID, ratingCount in sorted(ratings.items(), key=lambda x: x[1], reverse=True):
             rankings[movieID] = rank
             rank += 1
+
         return rankings
-    
+
     def getGenres(self):
         genres = defaultdict(list)
         genreIDs = {}
